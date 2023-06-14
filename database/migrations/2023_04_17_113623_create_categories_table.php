@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('categories', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('image')->nullable();
+            $table->integer('school_generation');
+            $table->year('three_years');
+            $table->year('four_years');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('categories');
+    }
+};
